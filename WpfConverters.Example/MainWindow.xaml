@@ -1,0 +1,44 @@
+﻿<Window x:Class="WpfConverters.Example.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:WpfConverters.Example.ViewModels"
+        xmlns:c="clr-namespace:WpfConverters.Converters;assembly=WpfConverters"
+        xmlns:s="clr-namespace:System;assembly=System.Runtime"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>
+    
+    <Grid>
+        <!--<Border Background="Red">
+            <Border.Width>
+                <Binding Path="Width">
+                    <Binding.Converter>
+                        <c:MathConverter Operation="Mult">
+                            <c:MathConverter.Operands>
+                                <x:Array Type="s:Double">
+                                    <s:Double>10</s:Double>
+                                    <s:Double>20</s:Double>
+                                </x:Array>
+                            </c:MathConverter.Operands>
+                        </c:MathConverter>
+                    </Binding.Converter>
+                </Binding>
+            </Border.Width>
+        </Border>-->
+
+        <Border Background="green"
+                Width="{Binding Width, Converter={c:MathConverter Operation=Sqrt, Operand=200, IgnoreBindingValue=True,
+                                       Then={c:MathConverter Operation=Multiply, Operand=5,
+                                       Then={c:MathConverter Operation=Division, Operand=3,
+                                       Then={c:MathConverter Operation=Round, Operand=0}}}}}" />
+
+        <Button Background="Blue"
+                Width="10"
+                IsEnabled="{Binding Width, Converter={c:MathConverter Operation=Multiply, Operand=15,
+                                           Then={c:CompareConverter Operation=NotEquals, Operand=1500}}}" />
+    </Grid>
+</Window>
