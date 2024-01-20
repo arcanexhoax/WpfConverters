@@ -11,6 +11,9 @@
     <Window.DataContext>
         <vm:MainViewModel />
     </Window.DataContext>
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Window.Resources>
     
     <Grid>
         <!--<Border Background="Red">
@@ -38,7 +41,8 @@
 
         <Button Background="Blue"
                 Width="10"
-                IsEnabled="{Binding Width, Converter={c:MathConverter Operation=Multiply, Operand=15,
-                                           Then={c:CompareConverter Operation=NotEquals, Operand=1500}}}" />
+                Visibility="{Binding Width, Converter={c:MathConverter Operation=Multiply, Operand=15,
+                                            Then={c:CompareConverter Operation=NotEquals, Operand=1500,
+                                            Then={StaticResource BoolToVis}}}}" />
     </Grid>
 </Window>

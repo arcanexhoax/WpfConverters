@@ -10,17 +10,17 @@ namespace WpfConverters.Converters
         /// <summary>
         /// Next converter that will use the result of the current converting as a "binding value".
         /// </summary>
-        public ConverterBase Then { get; set; }
-
-        public object ConvertFrom(object value)
-        {
-            return Convert(value, value.GetType(), null, CultureInfo.CurrentCulture);
-        }
+        public IValueConverter Then { get; set; }
 
         public abstract object Convert(object value, Type targetType, object parameter, CultureInfo culture);
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => null;
 
         public override object ProvideValue(IServiceProvider serviceProvider) => this;
+
+        public object ConvertNextIfNeeded(object result)
+        {
+            return Then?.Convert(result, result.GetType(), null, CultureInfo.CurrentCulture) ?? result;
+        }
     }
 }

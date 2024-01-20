@@ -55,7 +55,7 @@ namespace WpfConverters.Converters
                 _                                => firstOp == secondOp,
             };
 
-            return Then?.ConvertFrom(result) ?? result;
+            return ConvertNextIfNeeded(result);
         }
     }
 }

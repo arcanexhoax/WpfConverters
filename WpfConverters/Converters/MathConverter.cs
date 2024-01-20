@@ -100,7 +100,7 @@ namespace WpfConverters.Converters
                 _                         => Operate(values, (a, b) => a + b),
             };
 
-            return Then?.ConvertFrom(result) ?? result;
+            return ConvertNextIfNeeded(result);
         }
 
         private double Operate(List<double> values, Func<double, double, double> func)
