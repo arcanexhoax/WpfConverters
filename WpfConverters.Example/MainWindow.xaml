@@ -114,5 +114,10 @@
                 </Binding>
             </TextBlock.Text>
         </TextBlock>
+        
+        <!--Type converter-->
+        <TextBlock Grid.Row="2"
+                   Grid.Column="2"
+                   Text="{Binding BoolValue, Converter={c:TypeConverter To={x:Type s:Int16}}}" />
     </Grid>
 </Window>
