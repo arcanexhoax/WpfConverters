@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Data;
@@ -49,7 +50,7 @@ namespace WpfConverters.Converters
         /// <summary>
         /// Additional operands for a math operation. Use only if <see cref="Operand"/> isn't specified.
         /// </summary>
-        public double[] Operands { get; set; }
+        public Collection<double> Operands { get; } = [];
 
         /// <summary>
         /// A math operation between specified operands.
@@ -63,7 +64,7 @@ namespace WpfConverters.Converters
 
             if (Operand.HasValue)
                 values = [firstOp, Operand.Value];
-            else if (Operands is not null && Operands.Length > 0)
+            else if (Operands is not null && Operands.Count > 0)
                 values = [firstOp, ..Operands];
             else
                 values = [firstOp];

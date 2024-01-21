@@ -36,10 +36,8 @@
                     <Binding.Converter>
                         <c:MathConverter Operation="Multiply">
                             <c:MathConverter.Operands>
-                                <x:Array Type="s:Double">
-                                    <s:Double>10</s:Double>
-                                    <s:Double>20</s:Double>
-                                </x:Array>
+                                <s:Double>10</s:Double>
+                                <s:Double>20</s:Double>
                             </c:MathConverter.Operands>
                         </c:MathConverter>
                     </Binding.Converter>
@@ -88,10 +86,33 @@
                    Text="{Binding Source='test', Converter={c:StringComparisonConverter Operation=EqualsIgnoreCase, Operand='TEST',
                                                  Then={c:StringCaseConverter Operation=ToUpper}}}" />
         
-        <!--Custom bool to visibility converter-->
+        <!--Custom bool to visibility converter if you want to use your own visibility behavior-->
         <Border Grid.Row="1"
                 Grid.Column="3"
                 Background="Aquamarine"
                 Visibility="{Binding Source=true, Converter={c:BoolToVisibilityConverter ForTrue=Visible}}" />
+        
+        <!--Custom string format. Useful if formatted text need to convert-->
+        <TextBlock Grid.Row="2"
+                   Text="{Binding Source='{}{0} WITH FORMATTED TEXT', Converter={c:StringFormatConverter Argument='textBlock', 
+                                                                      Then={c:StringCaseConverter Operation=ToUpperFirstLetterAndToLowerOther}}}" />
+        
+        <!--Custom string format. Also useful if there are more than 1 arg to format-->
+        <TextBlock Grid.Row="2"
+                   Grid.Column="1"
+                   TextWrapping="Wrap">
+            <TextBlock.Text>
+                <Binding Source="{}{0} with formatted text that has {1} args">
+                    <Binding.Converter>
+                        <c:StringFormatConverter>
+                            <c:StringFormatConverter.Arguments>
+                                <s:String>TextBlock</s:String>
+                                <s:String>2</s:String>
+                            </c:StringFormatConverter.Arguments>
+                        </c:StringFormatConverter>
+                    </Binding.Converter>
+                </Binding>
+            </TextBlock.Text>
+        </TextBlock>
     </Grid>
 </Window>
