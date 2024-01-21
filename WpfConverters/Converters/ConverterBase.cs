@@ -14,7 +14,7 @@ namespace WpfConverters.Converters
 
         public abstract object Convert(object value, Type targetType, object parameter, CultureInfo culture);
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => null;
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => this;
 
         public override object ProvideValue(IServiceProvider serviceProvider) => this;
 

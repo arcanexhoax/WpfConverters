@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Windows.Data;
 
 namespace WpfConverters.Converters
 {
@@ -34,7 +35,8 @@ namespace WpfConverters.Converters
         NotEquals,
     }
 
-    public class CompareConverter : ConverterBase
+    [ValueConversion(typeof(double), typeof(bool))]
+    public class NumberComparisonConverter : ConverterBase
     {
         /// <summary>
         /// The second comparison operand.

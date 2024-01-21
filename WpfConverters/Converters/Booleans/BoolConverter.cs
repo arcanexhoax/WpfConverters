@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System;
+using System.Windows.Data;
 
 namespace WpfConverters.Converters
 {
@@ -34,6 +35,7 @@ namespace WpfConverters.Converters
         NotEquals
     }
 
+    [ValueConversion(typeof(bool), typeof(bool))]
     public class BoolConverter : ConverterBase
     {
         /// <summary>

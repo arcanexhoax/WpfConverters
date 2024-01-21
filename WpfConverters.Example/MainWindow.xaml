@@ -60,14 +60,14 @@
                 Grid.Column="2"
                 Width="10"
                 Visibility="{Binding Width, Converter={c:MathConverter Operation=Multiply, Operand=15,
-                                            Then={c:CompareConverter Operation=NotEquals, Operand=1500,
+                                            Then={c:NumberComparisonConverter Operation=NotEquals, Operand=1500,
                                             Then={StaticResource BoolToVis}}}}" />
 
         <!--Use bool converter-->
         <Button Background="Yellow"
                 Grid.Column="3"
                 Width="50"
-                IsEnabled="{Binding Width, Converter={c:CompareConverter Operation=MoreOrEquals, Operand=90, 
+                IsEnabled="{Binding Width, Converter={c:NumberComparisonConverter Operation=MoreOrEquals, Operand=90, 
                                            Then={c:BoolConverter Operation=Not}}}" />
 
         <!--Use third party values for converters-->
@@ -81,5 +81,11 @@
                    Text="{Binding Source=true, Converter={c:BoolConverter Operation=And, Operand=False,
                                                Then={c:ToStringConverter NullHanding=ReturnNullAsString,
                                                Then={c:StringCaseConverter Operation=Invert}}}}" />
+        
+        <!--String comparison converter-->
+        <TextBlock Grid.Row="1"
+                   Grid.Column="2"
+                   Text="{Binding Source='test', Converter={c:StringComparisonConverter Operation=EqualsIgnoreCase, Operand='TEST',
+                                                 Then={c:StringCaseConverter Operation=ToUpper}}}" />
     </Grid>
 </Window>

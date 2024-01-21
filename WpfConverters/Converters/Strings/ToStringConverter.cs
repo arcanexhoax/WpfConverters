@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Windows.Data;
 
 namespace WpfConverters.Converters
 {
@@ -22,6 +23,7 @@ namespace WpfConverters.Converters
         ReturnEmptyString
     }
 
+    [ValueConversion(typeof(object), typeof(string))]
     public class ToStringConverter : ConverterBase
     {
         /// <summary>

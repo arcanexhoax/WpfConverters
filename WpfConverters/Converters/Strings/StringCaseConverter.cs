@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Data;
 
 namespace WpfConverters.Converters
 {
@@ -34,6 +32,7 @@ namespace WpfConverters.Converters
         Invert,
     }
 
+    [ValueConversion(typeof(string), typeof(string))]
     public class StringCaseConverter : ConverterBase
     {
         /// <summary>

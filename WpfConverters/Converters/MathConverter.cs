@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Windows.Data;
 
 namespace WpfConverters.Converters
 {
@@ -37,6 +38,7 @@ namespace WpfConverters.Converters
         Decrement
     }
 
+    [ValueConversion(typeof(double), typeof(double))]
     public class MathConverter : ConverterBase
     {
         /// <summary>
