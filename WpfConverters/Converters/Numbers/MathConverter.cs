@@ -53,9 +53,9 @@ namespace WpfConverters.Converters
         public Collection<double> Operands { get; } = [];
 
         /// <summary>
-        /// A math operation between specified operands.
+        /// A math operation between specified operands. Default is <see cref="MathOperation.Increment"/>
         /// </summary>
-        public MathOperation Operation { get; set; }
+        public MathOperation Operation { get; set; } = MathOperation.Increment;
 
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
@@ -65,25 +65,25 @@ namespace WpfConverters.Converters
             if (Operand.HasValue)
                 values = [firstOp, Operand.Value];
             else if (Operands is not null && Operands.Count > 0)
-                values = [firstOp, ..Operands];
+                values = [firstOp, .. Operands];
             else
                 values = [firstOp];
 
             double result = Operation switch
             {
                 MathOperation.Subtraction => OperateBinary(values, (a, b) => a - b),
-                MathOperation.Multiply    => OperateBinary(values, (a, b) => a * b),
-                MathOperation.Division    => OperateBinary(values, (a, b) => a / b),
-                MathOperation.Mod         => OperateBinary(values, (a, b) => a % b),
-                MathOperation.Power       => OperateBinary(values, Math.Pow),
-                MathOperation.Round       => Round(values),
-                MathOperation.Max         => values.Max(),
-                MathOperation.Min         => values.Min(),
-                MathOperation.Absolute    => Math.Abs(values[0]),
-                MathOperation.Sqrt        => Math.Sqrt(values[0]),
-                MathOperation.Increment   => ++values[0],
-                MathOperation.Decrement   => --values[0],
-                _                         => OperateBinary(values, (a, b) => a + b),
+                MathOperation.Multiply => OperateBinary(values, (a, b) => a * b),
+                MathOperation.Division => OperateBinary(values, (a, b) => a / b),
+                MathOperation.Mod => OperateBinary(values, (a, b) => a % b),
+                MathOperation.Power => OperateBinary(values, Math.Pow),
+                MathOperation.Round => Round(values),
+                MathOperation.Max => values.Max(),
+                MathOperation.Min => values.Min(),
+                MathOperation.Absolute => Math.Abs(values[0]),
+                MathOperation.Sqrt => Math.Sqrt(values[0]),
+                MathOperation.Increment => ++values[0],
+                MathOperation.Decrement => --values[0],
+                _ => OperateBinary(values, (a, b) => a + b),
             };
 
             return ConvertNextIfNeeded(result);

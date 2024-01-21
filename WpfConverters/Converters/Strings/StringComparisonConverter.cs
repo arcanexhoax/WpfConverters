@@ -27,9 +27,9 @@ namespace WpfConverters.Converters
         public string Operand { get; set; }
 
         /// <summary>
-        /// String comparison operation.
+        /// String comparison operation. Default is <see cref="StringComparisonOperation.Equals"/>.
         /// </summary>
-        public StringComparisonOperation Operation { get; set; }
+        public StringComparisonOperation Operation { get; set; } = StringComparisonOperation.Equals;
 
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

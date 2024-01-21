@@ -27,9 +27,9 @@ namespace WpfConverters.Converters
     public class ToStringConverter : ConverterBase
     {
         /// <summary>
-        /// Specifies a behavior is case when given value is null.
+        /// Specifies a behavior is case when given value is null. Default is <see cref="NullHanding.ReturnEmptyString"/>.
         /// </summary>
-        public NullHanding NullHanding { get; set; }
+        public NullHanding NullHanding { get; set; } = NullHanding.ReturnEmptyString;
 
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

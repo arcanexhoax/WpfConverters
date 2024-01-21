@@ -36,9 +36,9 @@ namespace WpfConverters.Converters
     public class StringCaseConverter : ConverterBase
     {
         /// <summary>
-        /// Case convert operation.
+        /// Case convert operation. Default is <see cref="CaseOperation.ToUpper"/>.
         /// </summary>
-        public CaseOperation Operation { get; set; }
+        public CaseOperation Operation { get; set; } = CaseOperation.ToUpper;
 
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

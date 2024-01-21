@@ -39,14 +39,14 @@ namespace WpfConverters.Converters
     public class BoolConverter : ConverterBase
     {
         /// <summary>
-        /// The second bool operand.
+        /// The second bool operand. Default is <see langword="false"/>.
         /// </summary>
-        public bool Operand { get; set; }
+        public bool Operand { get; set; } = false;
 
         /// <summary>
-        /// Bool operation.
+        /// Bool operation. Default is <see cref="BoolOperation.Not"/>.
         /// </summary>
-        public BoolOperation Operation { get; set; }
+        public BoolOperation Operation { get; set; } = BoolOperation.Not;
 
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

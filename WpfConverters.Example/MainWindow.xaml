@@ -119,5 +119,10 @@
         <TextBlock Grid.Row="2"
                    Grid.Column="2"
                    Text="{Binding BoolValue, Converter={c:TypeConverter To={x:Type s:Int16}}}" />
+        
+        <!--Collection to string converter-->
+        <TextBlock Grid.Row="2"
+                   Grid.Column="3"
+                   Text="{Binding Numbers, Converter={c:CollectionToStringConverter Separator=';', StringConverter={c:TypeConverter}}}" />
     </Grid>
 </Window>

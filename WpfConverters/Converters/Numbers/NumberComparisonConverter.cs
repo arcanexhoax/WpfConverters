@@ -39,14 +39,14 @@ namespace WpfConverters.Converters
     public class NumberComparisonConverter : ConverterBase
     {
         /// <summary>
-        /// The second comparison operand.
+        /// The second comparison operand. Default is 0.
         /// </summary>
-        public double Operand { get; set; }
+        public double Operand { get; set; } = 0;
 
         /// <summary>
-        /// Comparison operation between 2 values.
+        /// Comparison operation between 2 values. Default is <see cref="ComparisonOperation.Equals"/>.
         /// </summary>
-        public ComparisonOperation Operation { get; set; }
+        public ComparisonOperation Operation { get; set; } = ComparisonOperation.Equals;
 
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
@@ -54,12 +54,12 @@ namespace WpfConverters.Converters
 
             bool result = Operation switch
             {
-                ComparisonOperation.Less         => firstOp < Operand,
+                ComparisonOperation.Less => firstOp < Operand,
                 ComparisonOperation.LessOrEquals => firstOp <= Operand,
-                ComparisonOperation.More         => firstOp > Operand,
+                ComparisonOperation.More => firstOp > Operand,
                 ComparisonOperation.MoreOrEquals => firstOp >= Operand,
-                ComparisonOperation.NotEquals    => firstOp != Operand,
-                _                                => firstOp == Operand,
+                ComparisonOperation.NotEquals => firstOp != Operand,
+                _ => firstOp == Operand,
             };
 
             return ConvertNextIfNeeded(result);

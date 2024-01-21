@@ -8,9 +8,9 @@ namespace WpfConverters.Converters
     public class TypeConverter : ConverterBase
     {
         /// <summary>
-        /// Target type that value converts in
+        /// Target type that value converts in. Default is <see cref="string"/>.
         /// </summary>
-        public Type To { get; set; }
+        public Type To { get; set; } = typeof(string);
 
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
