@@ -44,5 +44,13 @@
                 Visibility="{Binding Width, Converter={c:MathConverter Operation=Multiply, Operand=15,
                                             Then={c:CompareConverter Operation=NotEquals, Operand=1500,
                                             Then={StaticResource BoolToVis}}}}" />
+
+        <Button Background="Yellow"
+                Width="50"
+                IsEnabled="{Binding Width, Converter={c:CompareConverter Operation=MoreOrEquals, Operand=90, 
+                                           Then={c:BoolConverter Operation=Not}}}" />
+
+        <Border Background="Purple"
+                Width="{Binding Source=20, Converter={c:MathConverter Operation=Addition, Operand=500}}" />
     </Grid>
 </Window>
