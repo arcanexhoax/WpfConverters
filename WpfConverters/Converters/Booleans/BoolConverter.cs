@@ -8,11 +8,29 @@ namespace WpfConverters.Converters
     /// </summary>
     public enum BoolOperation
     {
+        /// <summary>
+        /// Unary bool operation: !
+        /// </summary>
         Not,
+        /// <summary>
+        /// Binary bool operation: &&
+        /// </summary>
         And,
+        /// <summary>
+        /// Binary bool operation: ||
+        /// </summary>
         Or,
+        /// <summary>
+        /// Binary bool operation: ^
+        /// </summary>
         Xor,
+        /// <summary>
+        /// Binary bool operation: ==
+        /// </summary>
         Equals,
+        /// <summary>
+        /// Binary bool operation: !=
+        /// </summary>
         NotEquals
     }
 
@@ -24,7 +42,7 @@ namespace WpfConverters.Converters
         public bool Operand { get; set; }
 
         /// <summary>
-        /// Bool operation
+        /// Bool operation.
         /// </summary>
         public BoolOperation Operation { get; set; }
 

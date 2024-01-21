@@ -16,12 +16,25 @@
     </Window.Resources>
     
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
         <!--Full converter initialization-->
-        <!--<Border Background="Red">
+        <Border Background="Red">
             <Border.Width>
                 <Binding Path="Width">
                     <Binding.Converter>
-                        <c:MathConverter Operation="Mult">
+                        <c:MathConverter Operation="Multiply">
                             <c:MathConverter.Operands>
                                 <x:Array Type="s:Double">
                                     <s:Double>10</s:Double>
@@ -32,10 +45,11 @@
                     </Binding.Converter>
                 </Binding>
             </Border.Width>
-        </Border>-->
+        </Border>
 
         <!--Complex math converter-->
         <Border Background="green"
+                Grid.Column="1"
                 Width="{Binding Width, Converter={c:MathConverter Operation=Sqrt,
                                        Then={c:MathConverter Operation=Multiply, Operand=5,
                                        Then={c:MathConverter Operation=Division, Operand=3,
@@ -43,6 +57,7 @@
 
         <!--Use different types of converters including third party-->
         <Button Background="Blue"
+                Grid.Column="2"
                 Width="10"
                 Visibility="{Binding Width, Converter={c:MathConverter Operation=Multiply, Operand=15,
                                             Then={c:CompareConverter Operation=NotEquals, Operand=1500,
@@ -50,12 +65,21 @@
 
         <!--Use bool converter-->
         <Button Background="Yellow"
+                Grid.Column="3"
                 Width="50"
                 IsEnabled="{Binding Width, Converter={c:CompareConverter Operation=MoreOrEquals, Operand=90, 
                                            Then={c:BoolConverter Operation=Not}}}" />
 
         <!--Use third party values for converters-->
         <Border Background="Purple"
+                Grid.Row="1"
                 Width="{Binding Source=20, Converter={c:MathConverter Operation=Addition, Operand=500}}" />
+        
+        <!--String case converter-->
+        <TextBlock Grid.Row="1"
+                   Grid.Column="1"
+                   Text="{Binding Source=true, Converter={c:BoolConverter Operation=And, Operand=False,
+                                               Then={c:ToStringConverter NullHanding=ReturnNullAsString,
+                                               Then={c:StringCaseConverter Operation=Invert}}}}" />
     </Grid>
 </Window>

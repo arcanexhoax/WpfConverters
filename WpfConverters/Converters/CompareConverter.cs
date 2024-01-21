@@ -4,15 +4,33 @@ using System.Globalization;
 namespace WpfConverters.Converters
 {
     /// <summary>
-    /// Comparison operation between 2 values
+    /// Comparison operation between 2 values.
     /// </summary>
     public enum ComparisonOperation
     {
+        /// <summary>
+        /// Comparison operation: <
+        /// </summary>
         Less,
+        /// <summary>
+        /// Comparison operation: <=
+        /// </summary>
         LessOrEquals,
+        /// <summary>
+        /// Comparison operation: >
+        /// </summary>
         More,
+        /// <summary>
+        /// Comparison operation: >=
+        /// </summary>
         MoreOrEquals,
+        /// <summary>
+        /// Comparison operation: ==
+        /// </summary>
         Equals,
+        /// <summary>
+        /// Comparison operation: ==
+        /// </summary>
         NotEquals,
     }
 
@@ -24,7 +42,7 @@ namespace WpfConverters.Converters
         public double Operand { get; set; }
 
         /// <summary>
-        /// Comparison operation between 2 values
+        /// Comparison operation between 2 values.
         /// </summary>
         public ComparisonOperation Operation { get; set; }
 
