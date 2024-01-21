@@ -87,5 +87,11 @@
                    Grid.Column="2"
                    Text="{Binding Source='test', Converter={c:StringComparisonConverter Operation=EqualsIgnoreCase, Operand='TEST',
                                                  Then={c:StringCaseConverter Operation=ToUpper}}}" />
+        
+        <!--Custom bool to visibility converter-->
+        <Border Grid.Row="1"
+                Grid.Column="3"
+                Background="Aquamarine"
+                Visibility="{Binding Source=true, Converter={c:BoolToVisibilityConverter ForTrue=Visible}}" />
     </Grid>
 </Window>
