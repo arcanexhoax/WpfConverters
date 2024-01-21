@@ -124,5 +124,10 @@
         <TextBlock Grid.Row="2"
                    Grid.Column="3"
                    Text="{Binding Numbers, Converter={c:CollectionToStringConverter Separator=';', StringConverter={c:TypeConverter}}}" />
+        
+        <!--Collection count converter-->
+        <TextBlock Grid.Row="3"
+                   Text="{Binding Numbers, Converter={c:CollectionToCountConverter 
+                                           Then={c:MathConverter Operation=Multiply, Operand=2}}}" />
     </Grid>
 </Window>
