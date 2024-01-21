@@ -19,14 +19,9 @@ namespace WpfConverters.Converters
     public class BoolConverter : ConverterBase
     {
         /// <summary>
-        /// The second bool operand. This operand will be the first if <see cref="ExtraOperand"/> is specified. 
+        /// The second bool operand.
         /// </summary>
-        public bool? Operand { get; set; }
-
-        /// <summary>
-        /// The second bool operand for binding value or <see cref="Operand"/> if it is specified.
-        /// </summary>
-        public bool? ExtraOperand { get; set; }
+        public bool Operand { get; set; }
 
         /// <summary>
         /// Bool operation
@@ -35,37 +30,16 @@ namespace WpfConverters.Converters
 
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            bool bindingValue = System.Convert.ToBoolean(value);
-
-            if (Operation == BoolOperation.Not)
-            {
-                bool operand;
-
-                if (Operand.HasValue)
-                    operand = Operand.Value;
-                else if (ExtraOperand.HasValue) 
-                    operand = ExtraOperand.Value;
-                else
-                    operand = bindingValue;
-
-                return ConvertNextIfNeeded(!operand);
-            }
-
-            (bool firstOp, bool secondOp) = (Operand, ExtraOperand) switch
-            {
-                (null, null)         => throw new ArgumentException($"Second operand ({nameof(Operand)} or {nameof(ExtraOperand)}) was not specified."),
-                (null, not null)     => (bindingValue, ExtraOperand.Value),
-                (not null, null)     => (bindingValue, Operand.Value),
-                (not null, not null) => (Operand.Value, ExtraOperand.Value)
-            };
+            bool firstOp = System.Convert.ToBoolean(value);
 
             bool result = Operation switch
             {
-                BoolOperation.And       => firstOp && secondOp,
-                BoolOperation.Or        => firstOp || secondOp,
-                BoolOperation.Xor       => firstOp ^ secondOp,
-                BoolOperation.NotEquals => firstOp != secondOp,
-                _                       => firstOp == secondOp,
+                BoolOperation.Not       => !firstOp,
+                BoolOperation.And       => firstOp && Operand,
+                BoolOperation.Or        => firstOp || Operand,
+                BoolOperation.Xor       => firstOp ^ Operand,
+                BoolOperation.NotEquals => firstOp != Operand,
+                _                       => firstOp == Operand,
             };
 
             return ConvertNextIfNeeded(result);

@@ -16,6 +16,7 @@
     </Window.Resources>
     
     <Grid>
+        <!--Full converter initialization-->
         <!--<Border Background="Red">
             <Border.Width>
                 <Binding Path="Width">
@@ -33,23 +34,27 @@
             </Border.Width>
         </Border>-->
 
+        <!--Complex math converter-->
         <Border Background="green"
-                Width="{Binding Width, Converter={c:MathConverter Operation=Sqrt, Operand=200, IgnoreBindingValue=True,
+                Width="{Binding Width, Converter={c:MathConverter Operation=Sqrt,
                                        Then={c:MathConverter Operation=Multiply, Operand=5,
                                        Then={c:MathConverter Operation=Division, Operand=3,
                                        Then={c:MathConverter Operation=Round, Operand=0}}}}}" />
 
+        <!--Use different types of converters including third party-->
         <Button Background="Blue"
                 Width="10"
                 Visibility="{Binding Width, Converter={c:MathConverter Operation=Multiply, Operand=15,
                                             Then={c:CompareConverter Operation=NotEquals, Operand=1500,
                                             Then={StaticResource BoolToVis}}}}" />
 
+        <!--Use bool converter-->
         <Button Background="Yellow"
                 Width="50"
                 IsEnabled="{Binding Width, Converter={c:CompareConverter Operation=MoreOrEquals, Operand=90, 
                                            Then={c:BoolConverter Operation=Not}}}" />
 
+        <!--Use third party values for converters-->
         <Border Background="Purple"
                 Width="{Binding Source=20, Converter={c:MathConverter Operation=Addition, Operand=500}}" />
     </Grid>

@@ -40,7 +40,7 @@ namespace WpfConverters.Converters
     public class MathConverter : ConverterBase
     {
         /// <summary>
-        /// An additional operand for a math operation.
+        /// Second operand for a math operation.
         /// </summary>
         public double? Operand { get; set; }
 
@@ -48,11 +48,6 @@ namespace WpfConverters.Converters
         /// Additional operands for a math operation. Use only if <see cref="Operand"/> isn't specified.
         /// </summary>
         public double[] Operands { get; set; }
-
-        /// <summary>
-        /// Specifies that a binding value will be ignored in a math operation. So it will only use <see cref="Operand"/> or <see cref="Operands"/>.
-        /// </summary>
-        public bool IgnoreBindingValue { get; set; }
 
         /// <summary>
         /// A math operation between specified operands.
@@ -64,32 +59,20 @@ namespace WpfConverters.Converters
             double firstOp = System.Convert.ToDouble(value);
             List<double> values;
 
-            if (IgnoreBindingValue)
-            {
-                if (Operand.HasValue)
-                    values = [Operand.Value];
-                else if (Operands is not null && Operands.Length > 0)
-                    values = Operands.ToList();
-                else
-                    throw new ArgumentException($"There are no given operands when {nameof(IgnoreBindingValue)} set to true");
-            }
+            if (Operand.HasValue)
+                values = [firstOp, Operand.Value];
+            else if (Operands is not null && Operands.Length > 0)
+                values = [firstOp, ..Operands];
             else
-            {
-                if (Operand.HasValue)
-                    values = [firstOp, Operand.Value];
-                else if (Operands is not null && Operands.Length > 0)
-                    values = [firstOp, ..Operands];
-                else
-                    values = [firstOp];
-            }
+                values = [firstOp];
 
             double result = Operation switch
             {
-                MathOperation.Subtraction => Operate(values, (a, b) => a - b),
-                MathOperation.Multiply    => Operate(values, (a, b) => a * b),
-                MathOperation.Division    => Operate(values, (a, b) => a / b),
-                MathOperation.Mod         => Operate(values, (a, b) => a % b),
-                MathOperation.Power       => Operate(values, Math.Pow),
+                MathOperation.Subtraction => OperateBinary(values, (a, b) => a - b),
+                MathOperation.Multiply    => OperateBinary(values, (a, b) => a * b),
+                MathOperation.Division    => OperateBinary(values, (a, b) => a / b),
+                MathOperation.Mod         => OperateBinary(values, (a, b) => a % b),
+                MathOperation.Power       => OperateBinary(values, Math.Pow),
                 MathOperation.Round       => Round(values),
                 MathOperation.Max         => values.Max(),
                 MathOperation.Min         => values.Min(),
@@ -97,13 +80,13 @@ namespace WpfConverters.Converters
                 MathOperation.Sqrt        => Math.Sqrt(values[0]),
                 MathOperation.Increment   => ++values[0],
                 MathOperation.Decrement   => --values[0],
-                _                         => Operate(values, (a, b) => a + b),
+                _                         => OperateBinary(values, (a, b) => a + b),
             };
 
             return ConvertNextIfNeeded(result);
         }
 
-        private double Operate(List<double> values, Func<double, double, double> func)
+        private double OperateBinary(List<double> values, Func<double, double, double> func)
         {
             if (values.Count < 2)
                 throw new ArgumentException($"Given operands: {values.Count}, need: 2.");
