@@ -93,25 +93,23 @@
                 Background="Aquamarine"
                 Visibility="{Binding Source=true, Converter={c:BoolToVisibilityConverter ForTrue=Visible}}" />
         
-        <!--Custom string format. Useful if formatted text need to convert-->
+        <!--Custom string format. Useful if formatted text need to convert or it has more than 1 arg-->
         <TextBlock Grid.Row="2"
-                   Text="{Binding Source='{}{0} WITH FORMATTED TEXT', Converter={c:StringFormatConverter Argument='textBlock', 
-                                                                      Then={c:StringCaseConverter Operation=ToUpperFirstLetterAndToLowerOther}}}" />
+                   Text="{Binding Numbers, Converter={c:StringFormatConverter Format='{}FIRST:{0}, SECOND: {1}, THIRD: {2}.', 
+                                           Then={c:StringCaseConverter Operation=ToUpperFirstLetterAndToLowerOther}}}" />
         
-        <!--Custom string format. Also useful if there are more than 1 arg to format-->
+        <!--Custom string format. Implementation with using Source-->
         <TextBlock Grid.Row="2"
                    Grid.Column="1"
                    TextWrapping="Wrap">
             <TextBlock.Text>
-                <Binding Source="{}{0} with formatted text that has {1} args">
-                    <Binding.Converter>
-                        <c:StringFormatConverter>
-                            <c:StringFormatConverter.Arguments>
-                                <s:String>TextBlock</s:String>
-                                <s:String>2</s:String>
-                            </c:StringFormatConverter.Arguments>
-                        </c:StringFormatConverter>
-                    </Binding.Converter>
+                <Binding Converter="{c:StringFormatConverter Format='The control: {0}, has {1} args'}">
+                    <Binding.Source>
+                        <x:Array Type="s:String">
+                            <s:String>TextBlock</s:String>
+                            <s:String>2</s:String>
+                        </x:Array>
+                    </Binding.Source>
                 </Binding>
             </TextBlock.Text>
         </TextBlock>
