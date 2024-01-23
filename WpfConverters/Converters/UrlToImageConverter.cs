@@ -9,10 +9,6 @@ namespace WpfConverters.Converters
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var result = new BitmapImage();
-            result.BeginInit();
-            result.CacheOption = BitmapCacheOption.OnLoad;
-
             Uri sourceUri = value switch
             {
                 string stringUri => new Uri(stringUri, UriKind.RelativeOrAbsolute),
@@ -23,8 +19,12 @@ namespace WpfConverters.Converters
             if (sourceUri is null)
                 return DependencyProperty.UnsetValue;
 
+            var result = new BitmapImage();
+            result.BeginInit();
+            result.CacheOption = BitmapCacheOption.OnLoad;
             result.UriSource = sourceUri;
             result.EndInit();
+
             return ConvertNextIfNeeded(result);
         }
     }

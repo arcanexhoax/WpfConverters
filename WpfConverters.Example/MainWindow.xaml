@@ -151,5 +151,10 @@
                 <ImageBrush ImageSource="{Binding Source='https://imgupscaler.com/images/samples/animal-after.webp', Converter={c:UrlToImageConverter}}" />
             </Border.Background>
         </Border>
+        
+        <!--Collection item converter-->
+        <TextBlock Grid.Row="4"
+                   Grid.Column="1"
+                   Text="{Binding Numbers, Converter={c:CollectionItemConverter Index=2}}" />
     </Grid>
 </Window>
