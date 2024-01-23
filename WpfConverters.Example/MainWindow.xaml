@@ -57,6 +57,7 @@
         <Button Background="Blue"
                 Grid.Column="2"
                 Width="10"
+                x:Name="blueBtn"
                 Visibility="{Binding Width, Converter={c:MathConverter Operation=Multiply, Operand=15,
                                             Then={c:NumberComparisonConverter Operation=NotEquals, Operand=1500,
                                             Then={StaticResource BoolToVis}}}}" />
@@ -129,5 +130,10 @@
         <TextBlock Grid.Row="3"
                    Text="{Binding Numbers, Converter={c:CollectionToCountConverter 
                                            Then={c:MathConverter Operation=Multiply, Operand=2}}}" />
+        
+        <!--Visibility to bool converter-->
+        <Button Grid.Row="3"
+                Grid.Column="1"
+                IsEnabled="{Binding Visibility, ElementName=blueBtn, Converter={c:VisibilityToBoolConverter ForCollapsed=True}}" />
     </Grid>
 </Window>
