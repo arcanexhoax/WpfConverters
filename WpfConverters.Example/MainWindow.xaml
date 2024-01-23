@@ -139,5 +139,10 @@
         <Border Grid.Row="3"
                 Grid.Column="2"
                 Background="{Binding Source={StaticResource color}, Converter={c:ColorToBrushConverter}}" />
+        
+        <!--Object to bool converter-->
+        <TextBlock Grid.Row="3"
+                   Grid.Column="3"
+                   Text="{Binding Source={x:Null}, Converter={c:ObjectToBoolConverter Operation=IsNull}}" />
     </Grid>
 </Window>
