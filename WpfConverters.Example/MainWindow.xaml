@@ -144,5 +144,12 @@
         <TextBlock Grid.Row="3"
                    Grid.Column="3"
                    Text="{Binding Source={x:Null}, Converter={c:ObjectToBoolConverter Operation=IsNull}}" />
+        
+        <!--Url to image converter-->
+        <Border Grid.Row="4">
+            <Border.Background>
+                <ImageBrush ImageSource="{Binding Source='https://imgupscaler.com/images/samples/animal-after.webp', Converter={c:UrlToImageConverter}}" />
+            </Border.Background>
+        </Border>
     </Grid>
 </Window>
