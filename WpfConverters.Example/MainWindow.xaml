@@ -13,6 +13,7 @@
     </Window.DataContext>
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
+        <Color x:Key="color">#ff9900</Color>
     </Window.Resources>
     
     <Grid>
@@ -133,5 +134,10 @@
         <Button Grid.Row="3"
                 Grid.Column="1"
                 IsEnabled="{Binding Visibility, ElementName=blueBtn, Converter={c:VisibilityToBoolConverter ForCollapsed=True}}" />
+        
+        <!--Color to brush converter-->
+        <Border Grid.Row="3"
+                Grid.Column="2"
+                Background="{Binding Source={StaticResource color}, Converter={c:ColorToBrushConverter}}" />
     </Grid>
 </Window>
