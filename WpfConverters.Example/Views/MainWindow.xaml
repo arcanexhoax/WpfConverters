@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:WpfConverters.Example.ViewModels"
-        xmlns:c="clr-namespace:WpfConverters.Converters;assembly=WpfConverters"
+        xmlns:c="clr-namespace:WpfConverters;assembly=WpfConverters"
         xmlns:s="clr-namespace:System;assembly=System.Runtime"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">

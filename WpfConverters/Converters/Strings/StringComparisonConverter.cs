@@ -1,24 +1,9 @@
 ﻿using System;
 using System.Globalization;
-using System.Windows.Data;
+using WpfConverters.Converters;
 
-namespace WpfConverters.Converters
+namespace WpfConverters
 {
-    /// <summary>
-    /// String comparison operation.
-    /// </summary>
-    public enum StringComparisonOperation
-    {
-        IsNull,
-        IsEmpty,
-        IsNullOrEmpty,
-        Equals,
-        EqualsIgnoreCase,
-        NotEquals,
-        NotEqualsIgnoreCase
-    }
-
-    [ValueConversion(typeof(string), typeof(bool))]
     public class StringComparisonConverter : ConverterBase
     {
         /// <summary>

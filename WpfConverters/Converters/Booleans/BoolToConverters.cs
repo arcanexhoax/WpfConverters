@@ -1,7 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Media;
+using WpfConverters.Converters;
 
-namespace WpfConverters.Converters
+namespace WpfConverters
 {
     public class BoolToObjectConverter() : BoolToConverterBase<object>(null, null) { }
     public class BoolToDoubleConverter() : BoolToConverterBase<double>(0, 0) { }

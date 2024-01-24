@@ -3,43 +3,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
-using System.Windows.Data;
+using WpfConverters.Converters;
 
-namespace WpfConverters.Converters
+namespace WpfConverters
 {
-    /// <summary>
-    /// Describes a math operation between specified operands
-    /// </summary>
-    public enum MathOperation
-    {
-        Addition,
-        Subtraction,
-        Multiply,
-        Division,
-        /// <summary>
-        /// Use only first 2 specified operands
-        /// </summary>
-        Power,
-        Mod,
-        /// <summary>
-        /// Use only first specified operand
-        /// </summary>
-        Absolute,
-        Max,
-        Min,
-        /// <summary>
-        /// Use only first specified operand
-        /// </summary>
-        Sqrt,
-        /// <summary>
-        /// Use only first 2 specified operands. The second operand is a number of digits
-        /// </summary>
-        Round,
-        Increment,
-        Decrement
-    }
-
-    [ValueConversion(typeof(double), typeof(double))]
     public class MathConverter : ConverterBase
     {
         /// <summary>
@@ -72,18 +39,18 @@ namespace WpfConverters.Converters
             double result = Operation switch
             {
                 MathOperation.Subtraction => OperateBinary(values, (a, b) => a - b),
-                MathOperation.Multiply => OperateBinary(values, (a, b) => a * b),
-                MathOperation.Division => OperateBinary(values, (a, b) => a / b),
-                MathOperation.Mod => OperateBinary(values, (a, b) => a % b),
-                MathOperation.Power => OperateBinary(values, Math.Pow),
-                MathOperation.Round => Round(values),
-                MathOperation.Max => values.Max(),
-                MathOperation.Min => values.Min(),
-                MathOperation.Absolute => Math.Abs(values[0]),
-                MathOperation.Sqrt => Math.Sqrt(values[0]),
-                MathOperation.Increment => ++values[0],
-                MathOperation.Decrement => --values[0],
-                _ => OperateBinary(values, (a, b) => a + b),
+                MathOperation.Multiply    => OperateBinary(values, (a, b) => a * b),
+                MathOperation.Division    => OperateBinary(values, (a, b) => a / b),
+                MathOperation.Mod         => OperateBinary(values, (a, b) => a % b),
+                MathOperation.Power       => OperateBinary(values, Math.Pow),
+                MathOperation.Round       => Round(values),
+                MathOperation.Max         => values.Max(),
+                MathOperation.Min         => values.Min(),
+                MathOperation.Absolute    => Math.Abs(values[0]),
+                MathOperation.Sqrt        => Math.Sqrt(values[0]),
+                MathOperation.Increment   => ++values[0],
+                MathOperation.Decrement   => --values[0],
+                _                         => OperateBinary(values, (a, b) => a + b),
             };
 
             return ConvertNextIfNeeded(result);

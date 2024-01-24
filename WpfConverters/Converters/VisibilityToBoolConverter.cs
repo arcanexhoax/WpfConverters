@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows;
+using WpfConverters.Converters;
 
-namespace WpfConverters.Converters
+namespace WpfConverters
 {
     public class VisibilityToBoolConverter : ConverterBase
     {
@@ -12,12 +13,12 @@ namespace WpfConverters.Converters
         public bool ForVisible { get; set; } = true;
 
         /// <summary>
-        /// Bool value for <see cref="Visibility.Hidden"/> state. Default if <see cref="false"/>.
+        /// Bool value for <see cref="Visibility.Hidden"/> state. Default is <see cref="false"/>.
         /// </summary>
         public bool ForHidden { get; set; } = false;
 
         /// <summary>
-        /// Bool value for <see cref="Visibility.Collapsed"/> state. Default if <see cref="false"/>.
+        /// Bool value for <see cref="Visibility.Collapsed"/> state. Default is <see cref="false"/>.
         /// </summary>
         public bool ForCollapsed { get; set; } = false;
 

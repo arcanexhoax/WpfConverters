@@ -1,41 +1,9 @@
 ﻿using System;
 using System.Globalization;
-using System.Windows.Data;
+using WpfConverters.Converters;
 
-namespace WpfConverters.Converters
+namespace WpfConverters
 {
-    /// <summary>
-    /// Comparison operation between 2 values.
-    /// </summary>
-    public enum ComparisonOperation
-    {
-        /// <summary>
-        /// Comparison operation: <
-        /// </summary>
-        Less,
-        /// <summary>
-        /// Comparison operation: <=
-        /// </summary>
-        LessOrEquals,
-        /// <summary>
-        /// Comparison operation: >
-        /// </summary>
-        More,
-        /// <summary>
-        /// Comparison operation: >=
-        /// </summary>
-        MoreOrEquals,
-        /// <summary>
-        /// Comparison operation: ==
-        /// </summary>
-        Equals,
-        /// <summary>
-        /// Comparison operation: ==
-        /// </summary>
-        NotEquals,
-    }
-
-    [ValueConversion(typeof(double), typeof(bool))]
     public class NumberComparisonConverter : ConverterBase
     {
         /// <summary>
@@ -44,9 +12,9 @@ namespace WpfConverters.Converters
         public double Operand { get; set; } = 0;
 
         /// <summary>
-        /// Comparison operation between 2 values. Default is <see cref="ComparisonOperation.Equals"/>.
+        /// Comparison operation between 2 values. Default is <see cref="NumberComparisonOperation.Equals"/>.
         /// </summary>
-        public ComparisonOperation Operation { get; set; } = ComparisonOperation.Equals;
+        public NumberComparisonOperation Operation { get; set; } = NumberComparisonOperation.Equals;
 
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
@@ -54,11 +22,11 @@ namespace WpfConverters.Converters
 
             bool result = Operation switch
             {
-                ComparisonOperation.Less => firstOp < Operand,
-                ComparisonOperation.LessOrEquals => firstOp <= Operand,
-                ComparisonOperation.More => firstOp > Operand,
-                ComparisonOperation.MoreOrEquals => firstOp >= Operand,
-                ComparisonOperation.NotEquals => firstOp != Operand,
+                NumberComparisonOperation.Less => firstOp < Operand,
+                NumberComparisonOperation.LessOrEquals => firstOp <= Operand,
+                NumberComparisonOperation.More => firstOp > Operand,
+                NumberComparisonOperation.MoreOrEquals => firstOp >= Operand,
+                NumberComparisonOperation.NotEquals => firstOp != Operand,
                 _ => firstOp == Operand,
             };
 

@@ -1,23 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using WpfConverters.Converters;
 
-namespace WpfConverters.Converters
+namespace WpfConverters
 {
-    /// <summary>
-    /// An operation for objects comparison.
-    /// </summary>
-    public enum ObjectComparisonOperation
-    {
-        Equals,
-        NotEquals,
-        IsNull,
-        IsNotNull,
-    }
-
     public class ObjectToBoolConverter : ConverterBase
     {
         /// <summary>

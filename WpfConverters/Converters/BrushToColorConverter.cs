@@ -2,8 +2,9 @@
 using System.Globalization;
 using System.Windows;
 using System.Windows.Media;
+using WpfConverters.Converters;
 
-namespace WpfConverters.Converters
+namespace WpfConverters
 {
     public class BrushToColorConverter : ConverterBase
     {

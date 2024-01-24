@@ -2,8 +2,9 @@
 using System.Collections;
 using System.Globalization;
 using System.Linq;
+using WpfConverters.Converters;
 
-namespace WpfConverters.Converters
+namespace WpfConverters
 {
     public class StringFormatConverter : ConverterBase
     {

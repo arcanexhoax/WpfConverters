@@ -1,29 +1,9 @@
 ﻿using System;
 using System.Globalization;
-using System.Windows.Data;
+using WpfConverters.Converters;
 
-namespace WpfConverters.Converters
+namespace WpfConverters
 {
-    /// <summary>
-    /// Specifies a behavior is case when given value is null.
-    /// </summary>
-    public enum NullHanding
-    {
-        /// <summary>
-        /// Return null.
-        /// </summary>
-        ReturnNull,
-        /// <summary>
-        /// Return "Null".
-        /// </summary>
-        ReturnNullAsString,
-        /// <summary>
-        /// Return "".
-        /// </summary>
-        ReturnEmptyString
-    }
-
-    [ValueConversion(typeof(object), typeof(string))]
     public class ToStringConverter : ConverterBase
     {
         /// <summary>
