@@ -51,7 +51,7 @@ The ultimate converters pack for WPF, providing enough simple and flexible conve
 
 First of all install package using *.NET CLI*:
 ```batchfile
-dotnet add package WpfConverters --version 0.9.0
+dotnet add package Hoax.WpfConverters --version 0.9.0
 ```
 or add the following string to the *.csproj* file:
 ```xml
@@ -62,7 +62,7 @@ or add the following string to the *.csproj* file:
 
 Add the namespace to your XAML header:
 ```xml
-xmlns:c="clr-namespace:Hoax.WpfConverters;assembly=Hoax.WpfConverters.Core"
+xmlns:c="clr-namespace:Hoax.WpfConverters;assembly=Hoax.WpfConverters"
 ```
 
 ### Simple example

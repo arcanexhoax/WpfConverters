@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WpfConverters\Hoax.WpfConverters.Core.csproj" />
+    <ProjectReference Include="..\WpfConverters\Hoax.WpfConverters.csproj" />
   </ItemGroup>
 
 </Project>
