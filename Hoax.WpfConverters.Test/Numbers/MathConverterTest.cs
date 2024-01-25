@@ -1,8 +1,7 @@
-using Hoax.WpfConverters;
 using System.Collections.ObjectModel;
 using System.Globalization;
 
-namespace WpfConverters.Test
+namespace Hoax.WpfConverters.Test.Numbers
 {
     public class MathConvertersTests
     {
