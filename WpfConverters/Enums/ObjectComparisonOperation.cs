@@ -1,4 +1,4 @@
-﻿namespace WpfConverters
+﻿namespace Hoax.WpfConverters
 {
     /// <summary>
     /// An operation for objects comparison.

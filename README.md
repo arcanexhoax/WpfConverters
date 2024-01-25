@@ -55,14 +55,14 @@ dotnet add package WpfConverters --version 0.9.0
 ```
 or add the following string to the *.csproj* file:
 ```xml
-<PackageReference Include="WpfConverters" Version="0.9.0" />
+<PackageReference Include="Hoax.WpfConverters" Version="0.9.0" />
 ```
 
 ### Adding namespace
 
 Add the namespace to your XAML header:
 ```xml
-xmlns:c="clr-namespace:WpfConverters;assembly=WpfConverters"
+xmlns:c="clr-namespace:Hoax.WpfConverters;assembly=Hoax.WpfConverters.Core"
 ```
 
 ### Simple example
@@ -86,16 +86,17 @@ or you can add a converter to resources which is a more effiecient way to use th
 Each converter has a `Then` property that takes an `IValueConverter` value. The next converter will use the result of the previous one. You can build as long a chain of converters as you like.
 <br>This example shows a chain of 3 operations. 
 1. `true` => `false`. The `IsEnabled` property of the button is `true`, so it becomes `false` after the `NOT` operation. 
-2. `false` => `False is the value after the NOT operation`. Formats `false` with given pattern. **Tip:** a string value of *false* is *"False"*. If the pattern starts with *{0}* you should add *{}* at the beginning of the string. But if the pattern binds from a C# code, you don't need to add that.
+2. `false` => `False is the value after the NOT operation`. Formats `false` with given pattern. 
+**Tip:** a string value of `false` is `"False"`. If the pattern starts with `{0}` you should add `{}` at the beginning of the string. But if the pattern binds from a C# code, you don't need to add that.
 3. `False is the value after the NOT operation` => `fALSE IS THE VALUE AFTER THE not OPERATION`. Inverts the case of the given string and set it to the Text property.
 
-<br>**Note**. You can use your own converters as a next converter, but if that converter doesn't extend the `WpfConveters.Converters.ConverterBase` class, it won't be able to continue the chain and will be the last link.
+<br>**Note**. You can use your own converters as a next converter, but if that converter doesn't extend the `Hoax.WpfConveters.Base.ConverterBase` class, it won't be able to continue the chain and will be the last link.
 ```xml
 <Button x:Name="btn" 
         IsEnabled="True" />
 
 <TextBlock Text="{Binding IsEnabled, ElementName=btn, 
-                                     Converter={c:BoolConverter Operation=Not, 
-                                     Then={c:StringFormatConverter Format='{}{0} is the value after the NOT operation',
-                                     Then={c:StringCaseConverter Operation=Invert}}}}" />
+                  Converter={c:BoolConverter Operation=Not, 
+                  Then={c:StringFormatConverter Format='{}{0} is the value after the NOT operation',
+                  Then={c:StringCaseConverter Operation=Invert}}}}" />
 ```

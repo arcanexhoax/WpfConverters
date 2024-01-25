@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Hoax.WpfConverters.Base;
+using System;
 using System.Globalization;
 using System.Linq;
-using WpfConverters.Converters;
 
-namespace WpfConverters
+namespace Hoax.WpfConverters
 {
     public class StringCaseConverter : ConverterBase
     {

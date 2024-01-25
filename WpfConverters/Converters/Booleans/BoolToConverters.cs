@@ -1,8 +1,8 @@
-﻿using System.Windows;
+﻿using Hoax.WpfConverters.Base;
+using System.Windows;
 using System.Windows.Media;
-using WpfConverters.Converters;
 
-namespace WpfConverters
+namespace Hoax.WpfConverters
 {
     public class BoolToObjectConverter() : BoolToConverterBase<object>(null, null) { }
     public class BoolToDoubleConverter() : BoolToConverterBase<double>(0, 0) { }

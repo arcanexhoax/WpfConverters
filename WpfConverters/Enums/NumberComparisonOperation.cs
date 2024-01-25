@@ -1,4 +1,4 @@
-﻿namespace WpfConverters
+﻿namespace Hoax.WpfConverters
 {
     /// <summary>
     /// Comparison operation between 2 values.

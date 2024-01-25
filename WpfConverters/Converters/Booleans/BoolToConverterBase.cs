@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WpfConverters.Converters
+namespace Hoax.WpfConverters.Base
 {
     public class BoolToConverterBase<T> : ConverterBase
     {

@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace WpfConverters.Converters
+namespace Hoax.WpfConverters.Base
 {
     public abstract class ConverterBase : MarkupExtension, IValueConverter
     {

@@ -1,4 +1,4 @@
-﻿namespace WpfConverters
+﻿namespace Hoax.WpfConverters
 {
     /// <summary>
     /// Describes a math operation between specified operands

@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Hoax.WpfConverters.Base;
+using System;
 using System.Globalization;
-using WpfConverters.Converters;
 
-namespace WpfConverters
+namespace Hoax.WpfConverters
 {
     public class StringComparisonConverter : ConverterBase
     {

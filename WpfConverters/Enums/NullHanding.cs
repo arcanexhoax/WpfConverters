@@ -1,4 +1,4 @@
-﻿namespace WpfConverters
+﻿namespace Hoax.WpfConverters
 {
     /// <summary>
     /// Specifies a behavior is case when given value is null.

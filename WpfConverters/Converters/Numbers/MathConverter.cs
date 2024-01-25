@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Hoax.WpfConverters.Base;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
-using WpfConverters.Converters;
 
-namespace WpfConverters
+namespace Hoax.WpfConverters
 {
     public class MathConverter : ConverterBase
     {

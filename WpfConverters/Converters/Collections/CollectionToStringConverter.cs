@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Hoax.WpfConverters.Base;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
-using WpfConverters.Converters;
 
-namespace WpfConverters
+namespace Hoax.WpfConverters
 {
     public class CollectionToStringConverter : ConverterBase
     {
