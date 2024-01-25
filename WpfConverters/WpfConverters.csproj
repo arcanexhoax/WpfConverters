@@ -4,5 +4,32 @@
 		<TargetFrameworks>net6.0-windows</TargetFrameworks>
 		<LangVersion>12</LangVersion>
 		<UseWPF>true</UseWPF>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>hoax</Authors>
+		<Description>The ultimate converters pack for WPF, providing enough simple and flexible converters for all occasions.</Description>
+		<Version>0.9.0</Version>
+		<Product>Hoax.WpfConverters</Product>
+		<Title>Hoax.WpfConverters</Title>
+		<PackageId>Hoax.WpfConverters</PackageId>
+		<PackageTags>wpf;converter;converters;mvvm;binding</PackageTags>
+		<PackageVersion>0.9.0</PackageVersion>
+		<PackageProjectUrl>https://github.com/arcanexhoax/WpfConverters</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/arcanexhoax/WpfConverters</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<Copyright>Copyright (c) Vitalii Shchur 2024</Copyright>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Include="..\LICENSE">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
 </Project>
