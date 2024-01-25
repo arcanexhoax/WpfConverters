@@ -22,12 +22,12 @@ namespace Hoax.WpfConverters
 
             bool result = Operation switch
             {
-                NumberComparisonOperation.Less => firstOp < Operand,
+                NumberComparisonOperation.Less         => firstOp < Operand,
                 NumberComparisonOperation.LessOrEquals => firstOp <= Operand,
-                NumberComparisonOperation.More => firstOp > Operand,
+                NumberComparisonOperation.More         => firstOp > Operand,
                 NumberComparisonOperation.MoreOrEquals => firstOp >= Operand,
-                NumberComparisonOperation.NotEquals => firstOp != Operand,
-                _ => firstOp == Operand,
+                NumberComparisonOperation.NotEquals    => firstOp != Operand,
+                _                                      => firstOp == Operand,
             };
 
             return ConvertNextIfNeeded(result);

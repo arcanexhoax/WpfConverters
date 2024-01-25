@@ -17,7 +17,7 @@ namespace Hoax.WpfConverters
         /// <summary>
         /// Additional operands for a math operation. Use only if <see cref="Operand"/> isn't specified.
         /// </summary>
-        public Collection<double> Operands { get; } = [];
+        public Collection<double> Operands { get; set; } = [];
 
         /// <summary>
         /// A math operation between specified operands. Default is <see cref="MathOperation.Increment"/>

@@ -13,13 +13,21 @@ namespace Hoax.WpfConverters
 
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string result = NullHanding switch
+            string result;
+
+            if (value is null)
             {
-                NullHanding.ReturnNull when value is null         => null,
-                NullHanding.ReturnNullAsString when value is null => "Null",
-                NullHanding.ReturnEmptyString when value is null  => string.Empty,
-                _                                                 => value.ToString()
-            };
+                result = NullHanding switch
+                {
+                    NullHanding.ReturnNull          => null,
+                    NullHanding.ReturnNullAsString  => "Null",
+                    _                               => string.Empty
+                };
+            }
+            else if (value is string stringValue)
+                result = stringValue;
+            else
+                result = value.ToString();
 
             return ConvertNextIfNeeded(result);
         }
