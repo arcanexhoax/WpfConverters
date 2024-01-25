@@ -13,8 +13,8 @@ namespace WpfConverters
             Uri sourceUri = value switch
             {
                 string stringUri => new Uri(stringUri, UriKind.RelativeOrAbsolute),
-                Uri uri          => uri,
-                _                => null
+                Uri uri => uri,
+                _ => null
             };
 
             if (sourceUri is null)

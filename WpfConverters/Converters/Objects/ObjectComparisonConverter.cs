@@ -4,7 +4,7 @@ using WpfConverters.Converters;
 
 namespace WpfConverters
 {
-    public class ObjectToBoolConverter : ConverterBase
+    public class ObjectComparisonConverter : ConverterBase
     {
         /// <summary>
         /// Second operand to compare with given value.
@@ -20,10 +20,10 @@ namespace WpfConverters
         {
             bool result = Operation switch
             {
-                ObjectComparisonOperation.IsNull    => value is null,
+                ObjectComparisonOperation.IsNull => value is null,
                 ObjectComparisonOperation.IsNotNull => value is not null,
                 ObjectComparisonOperation.NotEquals => value == Operand,
-                _                                   => value != Operand,
+                _ => value != Operand,
             };
 
             return ConvertNextIfNeeded(result);

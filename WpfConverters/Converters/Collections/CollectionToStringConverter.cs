@@ -16,9 +16,9 @@ namespace WpfConverters
         public string Separator { get; set; } = ", ";
         
         /// <summary>
-        /// A string converter of the given collection items. Default is <see cref="ToStringConverter"/>.
+        /// A string converter of the given collection items. Default is <see cref="ObjectToStringConverter"/>.
         /// </summary>
-        public IValueConverter StringConverter { get; set; } = new ToStringConverter();
+        public IValueConverter StringConverter { get; set; } = new ObjectToStringConverter();
 
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

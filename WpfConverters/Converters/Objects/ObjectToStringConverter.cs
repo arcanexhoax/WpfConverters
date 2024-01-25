@@ -4,7 +4,7 @@ using WpfConverters.Converters;
 
 namespace WpfConverters
 {
-    public class ToStringConverter : ConverterBase
+    public class ObjectToStringConverter : ConverterBase
     {
         /// <summary>
         /// Specifies a behavior is case when given value is null. Default is <see cref="NullHanding.ReturnEmptyString"/>.

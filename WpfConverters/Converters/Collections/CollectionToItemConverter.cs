@@ -6,7 +6,7 @@ using WpfConverters.Converters;
 
 namespace WpfConverters
 {
-    public class CollectionItemConverter : ConverterBase
+    public class CollectionToItemConverter : ConverterBase
     {
         /// <summary>
         /// Index of seeking collection's item.

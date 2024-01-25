@@ -30,8 +30,8 @@ namespace WpfConverters
             bool result = visibility switch
             {
                 Visibility.Visible => ForVisible,
-                Visibility.Hidden  => ForHidden,
-                _                  => ForCollapsed,
+                Visibility.Hidden => ForHidden,
+                _ => ForCollapsed,
             };
 
             return ConvertNextIfNeeded(result);

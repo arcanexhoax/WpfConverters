@@ -79,7 +79,7 @@
         <TextBlock Grid.Row="1"
                    Grid.Column="1"
                    Text="{Binding Source=true, Converter={c:BoolConverter Operation=And, Operand=False,
-                                               Then={c:ToStringConverter NullHanding=ReturnNullAsString,
+                                               Then={c:ObjectToStringConverter NullHanding=ReturnNullAsString,
                                                Then={c:StringCaseConverter Operation=Invert}}}}" />
         
         <!--String comparison converter-->
@@ -123,7 +123,7 @@
         <!--Collection to string converter-->
         <TextBlock Grid.Row="2"
                    Grid.Column="3"
-                   Text="{Binding Numbers, Converter={c:CollectionToStringConverter Separator=';', StringConverter={c:TypeConverter}}}" />
+                   Text="{Binding Numbers, Converter={c:CollectionToStringConverter Separator=';', StringConverter={c:ObjectToStringConverter}}}" />
         
         <!--Collection count converter-->
         <TextBlock Grid.Row="3"
@@ -143,19 +143,16 @@
         <!--Object to bool converter-->
         <TextBlock Grid.Row="3"
                    Grid.Column="3"
-                   Text="{Binding Source={x:Null}, Converter={c:ObjectToBoolConverter Operation=IsNull}}" />
+                   Text="{Binding Source={x:Null}, Converter={c:ObjectComparisonConverter Operation=IsNull}}" />
         
         <!--Url to image converter-->
-        <Border Grid.Row="4">
-            <Border.Background>
-                <ImageBrush ImageSource="{Binding Source='https://imgupscaler.com/images/samples/animal-after.webp', Converter={c:UrlToImageConverter}}" />
-            </Border.Background>
-        </Border>
-        
+        <Image Grid.Row="4"
+               Source="{Binding Source='https://en.wikipedia.org/static/images/icons/wikipedia.png', Converter={c:UrlToImageConverter}}" />
+
         <!--Collection item converter-->
         <TextBlock Grid.Row="4"
                    Grid.Column="1"
-                   Text="{Binding Numbers, Converter={c:CollectionItemConverter Index=2}}" />
+                   Text="{Binding Numbers, Converter={c:CollectionToItemConverter Index=2}}" />
 
         <!--Bool to opacity converter-->
         <Border Grid.Row="4"
