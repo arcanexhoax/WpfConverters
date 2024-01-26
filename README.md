@@ -1,4 +1,7 @@
 ## WPF Converters
+![NET](https://img.shields.io/badge/.NET%206-%23512BD4)
+[![Version](https://img.shields.io/nuget/vpre/Hoax.WpfConverters.svg?label=NuGet)](https://www.nuget.org/packages/Hoax.WpfConverters)
+[![License](https://img.shields.io/github/license/arcanexhoax/WpfConverters.svg?color=00b542&label=License)](https://raw.githubusercontent.com/arcanexhoax/WpfConverters/master/LICENSE)
 
 The ultimate converters pack for WPF, providing enough simple and flexible converters for all occasions.
 

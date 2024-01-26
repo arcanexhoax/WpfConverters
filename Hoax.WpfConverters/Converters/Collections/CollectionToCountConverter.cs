@@ -17,8 +17,6 @@ namespace Hoax.WpfConverters
 
             if (value is ICollection collection)
                 count = collection.Count;
-            else if (value is object[] array)
-                count = array.Length;
             else if (value is IEnumerable enumerable)
             {
                 var e = enumerable.GetEnumerator();
