@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace Hoax.WpfConverters.Test.Collections
 {
-    internal class CollectionConvertersTest
+    internal class CollectionToCountConvertersTest
     {
         [Test]
         public void SimpleCollectionToCountTest()

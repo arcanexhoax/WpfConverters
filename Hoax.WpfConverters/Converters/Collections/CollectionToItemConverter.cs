@@ -22,8 +22,6 @@ namespace Hoax.WpfConverters
 
             if (value is IList collection)
                 item = collection[Index];
-            else if (value is object[] array)
-                item = array[Index];
             else if (value is IEnumerable enumerable)
             {
                 int counter = 0;
