@@ -8,47 +8,38 @@ namespace Hoax.WpfConverters.Test.Numbers
         [Test]
         public void SimpleComparisonOperationsTest()
         {
-            List<(double FirstOp, double SecondOp, NumberComparisonOperation Operation)> ops = [
-                (1, 2, NumberComparisonOperation.Less),
-                (2, 2, NumberComparisonOperation.Less),
-                (2, 1, NumberComparisonOperation.Less),
-                (1, 2, NumberComparisonOperation.LessOrEquals),
-                (2, 2, NumberComparisonOperation.LessOrEquals),
-                (2, 1, NumberComparisonOperation.LessOrEquals),
-                (1, 2, NumberComparisonOperation.Equals),
-                (2, 2, NumberComparisonOperation.Equals),
-                (2, 1, NumberComparisonOperation.Equals),
-                (1, 2, NumberComparisonOperation.NotEquals),
-                (2, 2, NumberComparisonOperation.NotEquals),
-                (2, 1, NumberComparisonOperation.NotEquals),
-                (1, 2, NumberComparisonOperation.More),
-                (2, 2, NumberComparisonOperation.More),
-                (2, 1, NumberComparisonOperation.More),
-                (1, 2, NumberComparisonOperation.MoreOrEquals),
-                (2, 2, NumberComparisonOperation.MoreOrEquals),
-                (2, 1, NumberComparisonOperation.MoreOrEquals),
+            List<(double FirstOp, double SecondOp, NumberComparisonOperation Operation, bool Result)> ops = [
+                (1, 2, NumberComparisonOperation.Less, true),
+                (2, 2, NumberComparisonOperation.Less, false),
+                (2, 1, NumberComparisonOperation.Less, false),
+                (1, 2, NumberComparisonOperation.LessOrEquals, true),
+                (2, 2, NumberComparisonOperation.LessOrEquals, true),
+                (2, 1, NumberComparisonOperation.LessOrEquals, false),
+                (1, 2, NumberComparisonOperation.Equals, false),
+                (2, 2, NumberComparisonOperation.Equals, true),
+                (2, 1, NumberComparisonOperation.Equals, false),
+                (1, 2, NumberComparisonOperation.NotEquals, true),
+                (2, 2, NumberComparisonOperation.NotEquals, false),
+                (2, 1, NumberComparisonOperation.NotEquals, true),
+                (1, 2, NumberComparisonOperation.More, false),
+                (2, 2, NumberComparisonOperation.More, false),
+                (2, 1, NumberComparisonOperation.More, true),
+                (1, 2, NumberComparisonOperation.MoreOrEquals, false),
+                (2, 2, NumberComparisonOperation.MoreOrEquals, true),
+                (2, 1, NumberComparisonOperation.MoreOrEquals, true),
             ];
 
-            foreach (var op in ops)
+            foreach (var (firstOp, secondOp, operation, res) in ops)
             {
                 var con = new NumberComparisonConverter()
                 {
-                    Operation = op.Operation,
-                    Operand = op.SecondOp
+                    Operation = operation,
+                    Operand = secondOp
                 };
 
-                bool actualResult = (bool)con.Convert(op.FirstOp, typeof(double), null, CultureInfo.CurrentCulture);
-                bool expectedResult = op.Operation switch
-                {
-                    NumberComparisonOperation.Less         => op.FirstOp < op.SecondOp,
-                    NumberComparisonOperation.LessOrEquals => op.FirstOp <= op.SecondOp,
-                    NumberComparisonOperation.More         => op.FirstOp > op.SecondOp,
-                    NumberComparisonOperation.MoreOrEquals => op.FirstOp >= op.SecondOp,
-                    NumberComparisonOperation.NotEquals    => op.FirstOp != op.SecondOp,
-                    _                                      => op.FirstOp == op.SecondOp,
-                };
+                bool actualResult = (bool)con.Convert(firstOp, typeof(double), null, CultureInfo.CurrentCulture);
 
-                Assert.That(actualResult, Is.EqualTo(expectedResult));
+                Assert.That(actualResult, Is.EqualTo(res));
             }
         }
 

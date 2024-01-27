@@ -7,27 +7,27 @@ namespace Hoax.WpfConverters.Test.Booleans
         [Test]
         public void SimpleBoolOperationsTest()
         {
-            List<(bool Op1, bool Op2, BoolOperation Operation)> ops = [
-                (true, false, BoolOperation.And),    
-                (true, true, BoolOperation.And),    
-                (false, false, BoolOperation.And),    
-                (false, false, BoolOperation.Or),    
-                (true, false, BoolOperation.Or),    
-                (true, true, BoolOperation.Or),    
-                (true, true, BoolOperation.Equals),    
-                (true, false, BoolOperation.Equals),    
-                (false, false, BoolOperation.Equals),    
-                (false, false, BoolOperation.NotEquals),    
-                (false, true, BoolOperation.NotEquals),    
-                (true, true, BoolOperation.NotEquals),    
-                (true, true, BoolOperation.Xor),    
-                (true, false, BoolOperation.Xor),    
-                (false, false, BoolOperation.Xor),    
-                (true, false, BoolOperation.Not),    
-                (false, false, BoolOperation.Not),    
+            List<(bool Op1, bool Op2, BoolOperation Operation, bool Result)> ops = [
+                (true, false, BoolOperation.And, false),    
+                (true, true, BoolOperation.And, true),    
+                (false, false, BoolOperation.And, false),    
+                (false, false, BoolOperation.Or, false),    
+                (true, false, BoolOperation.Or, true),    
+                (true, true, BoolOperation.Or, true),    
+                (true, true, BoolOperation.Equals, true),    
+                (true, false, BoolOperation.Equals, false),    
+                (false, false, BoolOperation.Equals, true),    
+                (false, false, BoolOperation.NotEquals, false),    
+                (false, true, BoolOperation.NotEquals, true),    
+                (true, true, BoolOperation.NotEquals, false),    
+                (true, true, BoolOperation.Xor, false),    
+                (true, false, BoolOperation.Xor, true),    
+                (false, false, BoolOperation.Xor, false),    
+                (true, false, BoolOperation.Not, false),    
+                (false, false, BoolOperation.Not, true),    
             ];
 
-            foreach (var (op1, op2, operation) in ops )
+            foreach (var (op1, op2, operation, res) in ops )
             {
                 var con = new BoolConverter()
                 {
@@ -36,17 +36,8 @@ namespace Hoax.WpfConverters.Test.Booleans
                 };
 
                 bool actualResult = (bool)con.Convert(op1, typeof(bool), null, CultureInfo.CurrentCulture);
-                bool expectedResult = operation switch
-                {
-                    BoolOperation.Not => !op1 ,
-                    BoolOperation.And => op1 && op2,
-                    BoolOperation.Or => op1 || op2,
-                    BoolOperation.Xor => op1 ^ op2,
-                    BoolOperation.NotEquals => op1 != op2,
-                    _ => op1 == op2,
-                };
 
-                Assert.That(actualResult, Is.EqualTo(expectedResult));
+                Assert.That(actualResult, Is.EqualTo(res));
             }
         }
 
