@@ -17,9 +17,37 @@ namespace Hoax.WpfConverters
         {
             object result = DependencyProperty.UnsetValue;
 
+            if (value is null)
+            {
+                if (To.IsValueType)
+                    return Activator.CreateInstance(To);
+
+                return null;
+            }
+
+            if (value is char charValue)
+            {
+                if (To == typeof(double))
+                    return (double)charValue;
+                else if (To == typeof(float)) 
+                    return (float)charValue;
+                else if (To == typeof(decimal))
+                    return (decimal)charValue;
+            }
+
             if (value is IConvertible || value == null)
             {
-                result = System.Convert.ChangeType(value, To, culture);
+                try
+                {
+                    result = System.Convert.ChangeType(value, To, culture);
+                }
+                catch (FormatException)
+                {
+                    if (value is string stringValue)
+                        return stringValue is not null and not [];
+
+                    throw;
+                }
             }
             else
             {
