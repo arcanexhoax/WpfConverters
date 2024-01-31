@@ -18,7 +18,7 @@ namespace Hoax.WpfConverters
 
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string input = targetType == typeof(string) ? (string)value : value?.ToString();
+            string input = value is string stringValue ? stringValue : value?.ToString();
 
             bool result = Operation switch
             {
