@@ -15,9 +15,12 @@ namespace Hoax.WpfConverters
 
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if (Format is null)
+                return null;
+
             string result;
 
-            if (value is IEnumerable enumerable)
+            if (value is IEnumerable enumerable and not string)
             {
                 var castedEnumerable = enumerable.Cast<object>();
                 result = string.Format(Format, castedEnumerable.ToArray());
