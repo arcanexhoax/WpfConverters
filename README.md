@@ -13,7 +13,6 @@ The ultimate converters pack for WPF, providing enough simple and flexible conve
 - **BoolToObjectConverter** - Returns the specified *object* according to the *bool* value.
 - **BoolToStringConverter** - Returns the specified *string* according to the *bool* value.
 - **BoolToDoubleConverter** - Returns the specified *double* value according to the *bool* value.
-- **BoolToOpacityConverter** - Returns the specified *Opacity* value according to the *bool* value.
 - **BoolToVisibilityConverter** - Returns the specified *Visibility* value according to the *bool* value.
 - **BoolToThicknessConverter** - Returns the specified *Thickness* according to the *bool* value.
 - **BoolToBrushConverter** - Returns the specified *Brush* according to the *bool* value.
