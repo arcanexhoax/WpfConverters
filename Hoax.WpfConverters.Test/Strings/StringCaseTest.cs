@@ -7,7 +7,8 @@ namespace Hoax.WpfConverters.Test.Strings
         [Test]
         public void SimpleStringCaseTest()
         {
-            List<(string? operand, CaseOperation operation, string? result)> values = [
+            List<(string? operand, CaseOperation operation, string? result)> values = 
+            [
                 ("string", CaseOperation.ToUpper, "STRING"),    
                 ("sTrInG", CaseOperation.ToUpperFirstLetterAndToLowerOther, "String"),    
                 ("sTrInG", CaseOperation.ToUpperFirstLetterAndIgnoreOther, "STrInG"),

@@ -9,7 +9,8 @@ namespace Hoax.WpfConverters.Test.Collections
         [Test]
         public void SimpleCollectionToCountTest()
         {
-            List<(IEnumerable Collection, double Result)> values = [
+            List<(IEnumerable Collection, double Result)> values = 
+            [
                 (new Collection<int>() { 1, 3, 4, 15 }, 4),
                 (new int[] { 5, 8, 6, 4, 2, 4, 8, 10, 1 }, 9),
                 ("string", 6)
@@ -27,7 +28,8 @@ namespace Hoax.WpfConverters.Test.Collections
         [Test]
         public void CollectionToCountWithManyDifferentConverters()
         {
-            List<(IEnumerable Collection, int Operand, bool Result)> values = [
+            List<(IEnumerable Collection, int Operand, bool Result)> values = 
+            [
                 (new List<int>() { 1, 5, 3, 5 }, 2, true),
                 (new object[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, 1, false),
                 ("1234567890123456", 15, true)

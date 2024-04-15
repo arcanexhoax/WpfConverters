@@ -54,11 +54,11 @@ The ultimate converters pack for WPF, providing enough simple and flexible conve
 
 First of all install package using *.NET CLI*:
 ```batchfile
-dotnet add package Hoax.WpfConverters --version 0.9.0
+dotnet add package Hoax.WpfConverters --version 1.0.0
 ```
 or add the following string to the *.csproj* file:
 ```xml
-<PackageReference Include="Hoax.WpfConverters" Version="0.9.0" />
+<PackageReference Include="Hoax.WpfConverters" Version="1.0.0" />
 ```
 
 ### Adding namespace

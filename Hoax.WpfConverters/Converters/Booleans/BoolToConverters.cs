@@ -10,5 +10,4 @@ namespace Hoax.WpfConverters
     public class BoolToVisibilityConverter() : BoolToConverterBase<Visibility>(Visibility.Visible, Visibility.Collapsed) { }
     public class BoolToBrushConverter() : BoolToConverterBase<SolidColorBrush>(Brushes.Green, Brushes.Red) { }
     public class BoolToThicknessConverter() : BoolToConverterBase<Thickness>(new Thickness(0), new Thickness(0)) { }
-    public class BoolToOpacityConverter() : BoolToConverterBase<double>(1, 0.5) { }
 }

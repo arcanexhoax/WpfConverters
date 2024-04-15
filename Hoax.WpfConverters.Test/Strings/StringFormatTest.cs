@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 
 namespace Hoax.WpfConverters.Test.Strings
 {
@@ -12,7 +7,8 @@ namespace Hoax.WpfConverters.Test.Strings
         [Test]
         public void SimpleFormatTest()
         {
-            List<(string? format, object? arg, string? result)> values = [
+            List<(string? format, object? arg, string? result)> values = 
+            [
                 ("{0}string", null, "string"),
                 (null, 1, null),
                 (null, null, null),

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 
 namespace Hoax.WpfConverters.Test.Strings
 {
@@ -13,7 +7,8 @@ namespace Hoax.WpfConverters.Test.Strings
         [Test]
         public void SimpleComparisonTest()
         {
-            List<(string? operand1, StringComparisonOperation operation, string? operand2, bool result)> values = [
+            List<(string? operand1, StringComparisonOperation operation, string? operand2, bool result)> values = 
+            [
                 ("string", StringComparisonOperation.Equals, "string", true),    
                 ("string", StringComparisonOperation.Equals, "STRING", false),    
                 ("string", StringComparisonOperation.Equals, "123", false),    

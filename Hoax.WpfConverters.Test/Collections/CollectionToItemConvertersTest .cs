@@ -10,7 +10,8 @@ namespace Hoax.WpfConverters.Test.Collections
         [Test]
         public void SimpleCollectionToItemTest()
         {
-            List<(IEnumerable Collection, int Index, object Result)> values = [
+            List<(IEnumerable Collection, int Index, object Result)> values = 
+            [
                 (new Collection<Color>() { Colors.White, Colors.Wheat, Colors.SeaShell, Colors.Aquamarine }, 2, Colors.SeaShell),
                 (new int[] { 5, 8, 6, 4, 2, 4, 8, 10, 1 }, 5, 4),
                 ("string", 1, 't')
@@ -31,7 +32,8 @@ namespace Hoax.WpfConverters.Test.Collections
         [Test]
         public void CollectionToItemWithManyDifferentConverters()
         {
-            List<(IEnumerable Collection, int Index, string Operand, bool Result)> values = [
+            List<(IEnumerable Collection, int Index, string Operand, bool Result)> values = 
+            [
                 (new List<int>() { 1, 5, 3, 5 }, 2, "3", true),
                 (new object[] { false, true, true, true }, 1, "True", true),
                 ("1234567890123456", 5, "5", false)

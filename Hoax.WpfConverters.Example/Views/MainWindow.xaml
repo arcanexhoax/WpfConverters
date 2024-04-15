@@ -154,15 +154,9 @@
                    Grid.Column="1"
                    Text="{Binding Numbers, Converter={c:CollectionToItemConverter Index=2}}" />
 
-        <!--Bool to opacity converter-->
-        <Border Grid.Row="4"
-                Grid.Column="2"
-                Background="Black"
-                Opacity="{Binding Source=false, Converter={c:BoolToOpacityConverter ForFalse=0.4}}"/>
-
         <!--Lots of bool to converters-->
         <Border Grid.Row="4"
-                Grid.Column="3"
+                Grid.Column="2"
                 BorderThickness="{Binding Source=true, Converter={c:BoolToThicknessConverter ForTrue=3}}"
                 Padding="{Binding Source=true, Converter={c:BoolToThicknessConverter ForTrue=10}}"
                 Margin="{Binding Source=true, Converter={c:BoolToThicknessConverter ForTrue=10}}"

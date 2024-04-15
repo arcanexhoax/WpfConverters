@@ -8,7 +8,8 @@ namespace Hoax.WpfConverters.Test.Numbers
         [Test]
         public void SimpleComparisonOperationsTest()
         {
-            List<(double FirstOp, double SecondOp, NumberComparisonOperation Operation, bool Result)> ops = [
+            List<(double FirstOp, double SecondOp, NumberComparisonOperation Operation, bool Result)> ops = 
+            [
                 (1, 2, NumberComparisonOperation.Less, true),
                 (2, 2, NumberComparisonOperation.Less, false),
                 (2, 1, NumberComparisonOperation.Less, false),

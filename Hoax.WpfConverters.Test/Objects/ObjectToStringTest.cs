@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 
 namespace Hoax.WpfConverters.Test.Objects
 {
@@ -12,7 +7,8 @@ namespace Hoax.WpfConverters.Test.Objects
         [Test]
         public void SimpleObjectToStringTest()
         {
-            List<(object? operand, NullHanding nullHandling, string? result)> values = [
+            List<(object? operand, NullHanding nullHandling, string? result)> values = 
+            [
                 (new object(), default, "System.Object"),
                 (123, default, "123"),
                 (false, default, "False"),

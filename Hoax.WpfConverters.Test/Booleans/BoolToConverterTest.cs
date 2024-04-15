@@ -25,10 +25,7 @@ namespace Hoax.WpfConverters.Test.Booleans
         [Test]
         public void BoolToThicknessTest() => BoolTo(new Thickness(1), new Thickness(2), new BoolToThicknessConverter());
 
-        [Test]
-        public void BoolToOpacityTest() => BoolTo(1, 2, new BoolToOpacityConverter());
-
-        public void BoolTo<T>(T forTrue, T forFalse, BoolToConverterBase<T> con)
+        private void BoolTo<T>(T forTrue, T forFalse, BoolToConverterBase<T> con)
         {
             bool op1 = false;
             bool op2 = true;

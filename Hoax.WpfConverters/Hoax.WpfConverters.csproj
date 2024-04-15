@@ -7,12 +7,12 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Authors>hoax</Authors>
 		<Description>The ultimate converters pack for WPF, providing enough simple and flexible converters for all occasions.</Description>
-		<Version>0.9.0</Version>
+		<Version>1.0.0</Version>
 		<Product>Hoax.WpfConverters</Product>
 		<Title>Hoax.WpfConverters</Title>
 		<PackageId>Hoax.WpfConverters</PackageId>
 		<PackageTags>wpf;converter;converters;mvvm;binding</PackageTags>
-		<PackageVersion>0.9.0</PackageVersion>
+		<PackageVersion>1.0.0</PackageVersion>
 		<PackageProjectUrl>https://github.com/arcanexhoax/WpfConverters</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/arcanexhoax/WpfConverters</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>

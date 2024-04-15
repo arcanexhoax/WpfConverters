@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 
 namespace Hoax.WpfConverters.Test.Objects
 {
@@ -13,7 +7,8 @@ namespace Hoax.WpfConverters.Test.Objects
         [Test]
         public void SimpleComparisonTest()
         {
-            List<(object? firstOp, object? secondOp, ObjectComparisonOperation operation, bool result)> ops = [
+            List<(object? firstOp, object? secondOp, ObjectComparisonOperation operation, bool result)> ops = 
+            [
                 (1, 1, ObjectComparisonOperation.Equals, true),
                 (1, 2, ObjectComparisonOperation.Equals, false),
                 ("1", "1", ObjectComparisonOperation.Equals, true),

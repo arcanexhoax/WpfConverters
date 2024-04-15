@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 
 namespace Hoax.WpfConverters.Test.Objects
 {
@@ -12,7 +7,8 @@ namespace Hoax.WpfConverters.Test.Objects
         [Test]
         public void SimpleTypeConvertersTest()
         {
-            List<(object? operand, Type to, object? result)> values = [
+            List<(object? operand, Type to, object? result)> values = 
+            [
                 (1, typeof(double), 1d),
                 (1, typeof(char), '\u0001'),
                 (1, typeof(bool), true),

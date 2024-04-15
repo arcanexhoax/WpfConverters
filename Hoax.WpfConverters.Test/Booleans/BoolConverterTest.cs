@@ -7,7 +7,8 @@ namespace Hoax.WpfConverters.Test.Booleans
         [Test]
         public void SimpleBoolOperationsTest()
         {
-            List<(bool Op1, bool Op2, BoolOperation Operation, bool Result)> ops = [
+            List<(bool Op1, bool Op2, BoolOperation Operation, bool Result)> ops = 
+            [
                 (true, false, BoolOperation.And, false),    
                 (true, true, BoolOperation.And, true),    
                 (false, false, BoolOperation.And, false),    

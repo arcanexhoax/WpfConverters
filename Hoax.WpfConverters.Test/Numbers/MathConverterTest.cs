@@ -5,11 +5,6 @@ namespace Hoax.WpfConverters.Test.Numbers
 {
     public class MathConvertersTests
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
         [Test]
         public void SimpleAdditionTest()
         {

@@ -10,7 +10,8 @@ namespace Hoax.WpfConverters.Test.Collections
         [Test]
         public void SimpleCollectionToStringTest()
         {
-            List<(IEnumerable Collection, string Separator, string Result)> values = [
+            List<(IEnumerable Collection, string Separator, string Result)> values = 
+            [
                 (new Collection<Color>() { Colors.White, Colors.Wheat }, string.Empty, "#FFFFFFFF#FFF5DEB3"),
                 (new int[] { 5, 8, 6, 4 }, ";", "5;8;6;4"),
                 ("string", " ", "s t r i n g")
@@ -31,7 +32,8 @@ namespace Hoax.WpfConverters.Test.Collections
         [Test]
         public void CollectionToStringWithManyDifferentConverters()
         {
-            List<(IEnumerable Collection, string Separator, int Operand, bool Result)> values = [
+            List<(IEnumerable Collection, string Separator, int Operand, bool Result)> values = 
+            [
                 (new List<int>() { 1, 5, 3, 5 }, ".", 7, true),
                 (new object[] { false, true, true, true }, "true", 29, true),
                 ("1234567890123456", string.Empty, 15, false)
